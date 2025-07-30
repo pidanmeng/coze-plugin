@@ -1,6 +1,6 @@
 # Coze Reddit Plugin Backend
 
-这是一个为[扣子 (Coze)](https://www.coze.com/)平台开发的Reddit插件后端项目。它基于Next.js框架构建，旨在提供与Reddit API交互的各种功能。
+这是一个为[扣子 (Coze)](https://www.coze.cn/)平台开发的Reddit插件后端项目。它基于Next.js框架构建，旨在提供与Reddit API交互的各种功能。
 
 ## 项目结构
 
@@ -50,7 +50,7 @@ coze-plugin/
 
 ## 运行方式
 
-请确保您已安装 [Node.js](https://nodejs.org/) 和 [npm](https://www.npmjs.com/)。
+请确保您已安装 [Node.js](https://nodejs.org/) 和 [bun](https://bun.com/)。
 
 1. **安装依赖**: 
    ```bash
