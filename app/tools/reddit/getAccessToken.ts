@@ -40,10 +40,7 @@ export async function getAccessToken() {
     accessToken = data.access_token;
     tokenExpiry = now + data.expires_in * 1000;
 
-    return {
-      accessToken,
-      tokenExpiry,
-    };
+    return accessToken;
   } catch (error) {
     return {
       message: error,

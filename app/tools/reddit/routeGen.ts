@@ -1,4 +1,3 @@
-import { getAccessToken } from './getAccessToken';
 import {
   getCommentsBySubmission,
   getSubmission,
@@ -11,11 +10,6 @@ import { getApp } from '../utils/app';
 
 export function registerRedditRoutes() {
   const app = getApp();
-
-  app.get('/reddit/getAccessToken', async (c) => {
-    const response = await getAccessToken();
-    return c.json(response);
-  });
 
   app.get('/reddit/getSubReddit', async (c) => {
     const response = await getSubReddit({

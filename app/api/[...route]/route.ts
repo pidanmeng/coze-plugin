@@ -1,6 +1,6 @@
 'use server';
 
-import { registerRedditRoutes } from '@/app/tools/reddit/route';
+import { registerRedditRoutes } from '@/app/tools/reddit/routeGen';
 import { getApp } from '@/app/tools/utils/app';
 import { handle } from 'hono/vercel';
 

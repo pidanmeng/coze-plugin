@@ -20,7 +20,7 @@ export async function redditApiRequest(
     }
     const response = await axios.get(url, {
       headers: {
-        Authorization: `Bearer ${token.accessToken}`,
+        Authorization: `Bearer ${token}`,
         'User-Agent': process.env.REDDIT_USER_AGENT || '',
       },
     });
