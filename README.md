@@ -98,7 +98,6 @@ REDDIT_CLIENT_SECRET=your_client_secret_here
 
 以下是本项目提供的主要API端点及其功能：
 
-- `GET /reddit/getAccessToken` - 获取Reddit访问令牌
 - `GET /reddit/getSubReddit?name={subreddit_name}` - 获取子版块信息
 - `GET /reddit/searchPosts?subreddit={subreddit_name}&query={search_query}&sort={sort_type}&time={time_range}&limit={limit}` - 搜索帖子
 - `GET /reddit/getSubmission?id={submission_id}` - 获取帖子详情
