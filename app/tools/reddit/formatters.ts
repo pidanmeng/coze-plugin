@@ -4,7 +4,7 @@ export interface FormattedSubredditData {
   description: string;
   subscribers: string;
   createdAt: string;
-  nsfw: string;
+  nsfw: boolean;
   url: string;
 }
 
@@ -12,10 +12,10 @@ export function formatSubredditData(subreddit: any): FormattedSubredditData {
   return {
     subreddit: `r/${subreddit.display_name}`,
     title: subreddit.title,
-    description: subreddit.public_description || '无描述',
+    description: subreddit.public_description || '',
     subscribers: subreddit.subscribers.toLocaleString(),
     createdAt: new Date(subreddit.created_utc * 1000).toISOString(),
-    nsfw: subreddit.over18 ? '是' : '否',
+    nsfw: Boolean(subreddit.over18),
     url: `https://www.reddit.com${subreddit.url}`,
   };
 }
@@ -31,11 +31,7 @@ export interface FormattedSearchResult {
   id: string;
 }
 
-export function formatSearchResults(posts: any[]): FormattedSearchResult[] | string {
-  if (!posts || posts.length === 0) {
-    return '未找到符合搜索条件的帖子。';
-  }
-
+export function formatSearchResults(posts: any[]): FormattedSearchResult[] {
   return posts.map((post, index) => {
     const p = post.data;
     return {
@@ -58,7 +54,7 @@ export interface FormattedSubmissionData {
   score: number;
   numComments: number;
   createdAt: string;
-  nsfw: string;
+  nsfw: boolean;
   url: string;
   contentType: string;
   content: string;
@@ -72,7 +68,7 @@ export function formatSubmissionData(submission: any): FormattedSubmissionData {
     score: submission.score,
     numComments: submission.num_comments,
     createdAt: new Date(submission.created_utc * 1000).toISOString(),
-    nsfw: submission.over_18 ? '是' : '否',
+    nsfw: Boolean(submission.over_18),
     url: `https://www.reddit.com${submission.permalink}`,
     contentType: submission.is_self ? '文本帖' : '链接帖',
     content: submission.is_self ? submission.selftext : submission.url,
@@ -90,11 +86,7 @@ export interface FormattedCommentData {
   linkId?: string;
 }
 
-export function formatCommentsData(comments: any[]): FormattedCommentData[] | string {
-  if (!comments || comments.length === 0) {
-    return '此帖子没有评论。';
-  }
-
+export function formatCommentsData(comments: any[]): FormattedCommentData[] {
   return comments.map((comment, index) => {
     const c = comment.data;
     return {
@@ -126,11 +118,13 @@ export interface FormattedSubredditSearchResult {
   title: string;
   description: string;
   subscribers: string;
-  nsfw: string;
+  nsfw: boolean;
   url: string;
 }
 
-export function formatSubredditSearchResults(subreddits: any[]): FormattedSubredditSearchResult[] | string {
+export function formatSubredditSearchResults(
+  subreddits: any[]
+): FormattedSubredditSearchResult[] | string {
   if (!subreddits || subreddits.length === 0) {
     return '未找到符合搜索条件的 subreddits。';
   }
@@ -141,9 +135,9 @@ export function formatSubredditSearchResults(subreddits: any[]): FormattedSubred
       index: index + 1,
       displayName: `r/${s.display_name}`,
       title: s.title,
-      description: s.public_description || '无描述',
+      description: s.public_description || '',
       subscribers: s.subscribers.toLocaleString(),
-      nsfw: s.over18 ? '是' : '否',
+      nsfw: Boolean(s.over18),
       url: `https://www.reddit.com${s.url}`,
     };
   });

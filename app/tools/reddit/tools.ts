@@ -22,9 +22,15 @@ export async function getSubReddit({
 }: z.infer<typeof zGetSubRedditParams>) {
   try {
     const subreddit = await redditApiRequest(`/r/${name}/about`);
-    return formatSubredditData(subreddit.data);
-  } catch (error) {
-    return null;
+    return {
+      data: formatSubredditData(subreddit.data),
+      message: '',
+    };
+  } catch (error: any) {
+    return {
+      data: null,
+      message: error?.message,
+    };
   }
 }
 
@@ -78,9 +84,15 @@ export async function searchPosts({
 
     const results = await redditApiRequest(endpoint, params);
 
-    return formatSearchResults(results.data.children);
+    return {
+      data: formatSearchResults(results.data.children),
+      message: '',
+    };
   } catch (error: any) {
-    return null;
+    return {
+      data: null,
+      message: error?.message,
+    };
   }
 }
 
@@ -93,9 +105,15 @@ export async function getSubmission({
       limit: '1',
     });
 
-    return formatSubmissionData(submission[0].data.children[0].data);
-  } catch (error) {
-    return null;
+    return {
+      data: formatSubmissionData(submission[0].data.children[0].data),
+      message: '',
+    }
+  } catch (error: any) {
+    return {
+      data: null,
+      message: error?.message,
+    }
   }
 }
 
@@ -118,9 +136,15 @@ export async function getCommentsBySubmission({
       (child: { kind?: string }) => child.kind === 't1'
     );
 
-    return formatCommentsData(comments);
-  } catch (error) {
-    return null;
+    return {
+      data: formatCommentsData(comments),
+      message: '',
+    }
+  } catch (error: any) {
+    return {
+      data: null,
+      message: error.message,
+    }
   }
 }
 
@@ -142,9 +166,15 @@ export async function getComment({ id }: z.infer<typeof zGetComment>) {
       };
     }
 
-    return formatCommentData(comment.data.children[0].data);
-  } catch (error) {
-    return null;
+    return {
+      data: formatCommentData(comment.data.children[0].data),
+      message: '',
+    }
+  } catch (error: any) {
+    return {
+      data: null,
+      message: error.message,
+    }
   }
 }
 
@@ -160,8 +190,14 @@ export async function searchSubReddit({
 
     const results = await redditApiRequest(`/subreddits/search`, params);
 
-    return formatSubredditSearchResults(results.data.children);
-  } catch (error) {
-    return null;
+    return {
+      data: formatSubredditSearchResults(results.data.children),
+      message: '',
+    }
+  } catch (error: any) {
+    return {
+      data: null,
+      message: error.message,
+    }
   }
 }
