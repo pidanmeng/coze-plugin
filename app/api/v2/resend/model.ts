@@ -1,5 +1,4 @@
 import z from 'zod';
-import { t } from 'elysia';
 
 export const TOOL_NAME = 'resend';
 
