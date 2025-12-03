@@ -9,13 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@elysiajs/cors": "^1.4.0",
+    "@elysiajs/openapi": "^1.4.11",
+    "@elysiajs/opentelemetry": "^1.4.8",
+    "@elysiajs/server-timing": "^1.4.0",
+    "@modelcontextprotocol/sdk": "1.23.0-beta.0",
     "axios": "^1.10.0",
+    "elysia": "^1.4.17",
     "hono": "^4.8.5",
     "https-proxy-agent": "^7.0.6",
+    "mcp-handler": "^1.0.4",
     "next": "14.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "zod": "^4.0.13"
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "@types/node": "18.11.18",
