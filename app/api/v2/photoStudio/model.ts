@@ -28,6 +28,10 @@ export namespace PhotoStudioModel {
       ),
   });
 
+  export const getImageByUUIDParams = z.object({
+    generatedUUID: z.string().describe('图片的UUID'),
+  });
+
   export const portraitRetouchingParams = z.object({
     imageUrl: z.url().describe('原图的URL地址'),
   });
@@ -59,5 +63,9 @@ export namespace PhotoStudioModel {
 
   export type TextureEnhancementParams = z.infer<
     typeof PhotoStudioModel.textureEnhancementParams
+  >;
+
+  export type GetImageByUUIDParams = z.infer<
+    typeof PhotoStudioModel.getImageByUUIDParams
   >;
 }

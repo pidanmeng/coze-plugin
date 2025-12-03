@@ -172,7 +172,9 @@ export async function invokeLibLibWorkflow<T extends GenerateParams>(request: {
     const generateUuid = result.data.generateUuid;
     console.info('Workflow started, generateUuid=', generateUuid);
 
-    return await pollGenerateResult(generateUuid);
+    return {
+      generateUuid,
+    };
   } catch (error) {
     console.error('Failed to invoke workflow', {
       error: (error as Error).message,
@@ -256,7 +258,9 @@ export async function invokeTextToImageByQwen(
 
     const generateUuid = result.data.generateUuid;
     // 在拿到 uuid 后轮询直至完成并返回最终结果
-    return await pollGenerateResult(generateUuid);
+    return {
+      generateUuid,
+    };
   } catch (error) {
     console.error('Failed to invoke text to image', {
       error: (error as Error).message,
@@ -343,7 +347,9 @@ export async function invokeImageToImageByQwen(
 
     const generateUuid = result.data.generateUuid;
     // 在拿到 uuid 后轮询直至完成并返回最终结果
-    return await pollGenerateResult(generateUuid);
+    return {
+      generateUuid,
+    };
   } catch (error) {
     console.error('Failed to invoke text to image', {
       error: (error as Error).message,

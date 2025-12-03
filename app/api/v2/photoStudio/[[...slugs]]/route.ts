@@ -68,6 +68,15 @@ const app = new Elysia({ prefix: getPrefix(TOOL_NAME) })
     {
       body: PhotoStudioModel.textureEnhancementParams,
     }
+  )
+  .post(
+    '/getImageByUUID',
+    ({ body }) => {
+      return PhotoStudioService.getImageByUUID(body);
+    },
+    {
+      body: PhotoStudioModel.getImageByUUIDParams,
+    }
   );
 
 export const GET = app.fetch;

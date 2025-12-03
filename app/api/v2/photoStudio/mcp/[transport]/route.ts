@@ -82,6 +82,19 @@ const handler = createMcpHandler(
         return { content: [{ type: 'text', text: JSON.stringify(res) }] };
       }
     );
+
+    server.registerTool(
+      'getImageByUUID',
+      {
+        title: '获取图片',
+        description: '根据 UUID 查询生图状态，包括图片生成进度以及生成的图片地址',
+        inputSchema: PhotoStudioModel.getImageByUUIDParams,
+      },
+      async (args) => {
+        const res = await PhotoStudioService.getImageByUUID(args);
+        return { content: [{ type: 'text', text: JSON.stringify(res) }] };
+      }
+    );
   },
   {},
   {

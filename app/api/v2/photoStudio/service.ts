@@ -4,6 +4,7 @@ import {
   invokeImageToImageByQwen,
   type GenerateParams,
   type ImageToImageParams,
+  queryLibLibImageStatus,
 } from '@/app/tools/utils/liblib';
 
 export abstract class PhotoStudioService {
@@ -113,6 +114,13 @@ export abstract class PhotoStudioService {
       generateParams,
     });
     console.info('textureEnhancement result', res);
+    return res;
+  }
+
+  static async getImageByUUID(args: PhotoStudioModel.GetImageByUUIDParams) {
+    const { generatedUUID } = args;
+    const res = await queryLibLibImageStatus(generatedUUID);
+    console.info('getImageByUUID result', res);
     return res;
   }
 }
