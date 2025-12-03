@@ -43,15 +43,6 @@ const app = new Elysia({ prefix: getPrefix(TOOL_NAME) })
     }
   )
   .post(
-    '/petOutfitChange',
-    ({ body }) => {
-      return PhotoStudioService.petOutfitChange(body);
-    },
-    {
-      body: PhotoStudioModel.petOutfitChangeParams,
-    }
-  )
-  .post(
     '/portraitRetouching',
     ({ body }) => {
       return PhotoStudioService.portraitRetouching(body);

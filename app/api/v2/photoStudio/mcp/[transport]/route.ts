@@ -45,19 +45,6 @@ const handler = createMcpHandler(
     );
 
     server.registerTool(
-      'petOutfitChange',
-      {
-        title: '宠物换装',
-        description: '宠物换装工具，给宠物穿上指定的服饰',
-        inputSchema: PhotoStudioModel.petOutfitChangeParams,
-      },
-      async (args) => {
-        const res = await PhotoStudioService.petOutfitChange(args);
-        return { content: [{ type: 'text', text: JSON.stringify(res) }] };
-      }
-    );
-
-    server.registerTool(
       'portraitRetouching',
       {
         title: '人像精修',
