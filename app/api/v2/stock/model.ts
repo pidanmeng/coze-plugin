@@ -7,17 +7,14 @@ export namespace StockModel {
     ts_code: z
       .string()
       .optional()
-      .default('000001.SZ')
       .describe('股票代码，逗号分隔'),
     start_date: z
       .string()
       .optional()
-      .default('20240101')
       .describe('开始日期(YYYYMMDD)'),
     end_date: z
       .string()
       .optional()
-      .default('20241231')
       .describe('结束日期(YYYYMMDD)'),
   });
 
@@ -27,7 +24,6 @@ export namespace StockModel {
   export const rtKParams = z.object({
     ts_code: z
       .string()
-      .default('600000.SH')
       .describe('股票代码，支持通配符方式，e.g. 6.SH、301.SZ、600000.SH'),
   });
 
@@ -35,7 +31,6 @@ export namespace StockModel {
     ts_code: z
       .string()
       .optional()
-      .default('000001.SZ')
       .describe('股票代码，逗号分隔'),
   });
 
@@ -43,12 +38,10 @@ export namespace StockModel {
     start_date: z
       .string()
       .optional()
-      .default('20240101')
       .describe('上网发行开始日期(YYYYMMDD)'),
     end_date: z
       .string()
       .optional()
-      .default('20241231')
       .describe('上网发行结束日期(YYYYMMDD)'),
   });
 }

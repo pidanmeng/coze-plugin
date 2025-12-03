@@ -7,18 +7,15 @@ export namespace QRCodeModel {
     content: z
       .string()
       .min(1, { message: '内容不能为空' })
-      .describe('二维码内容')
-      .default('https://tbox.alipay.com'),
+      .describe('二维码内容'),
     title: z
       .string()
       .optional()
-      .describe('二维码标题')
-      .default('扫码立即访问百宝箱'),
+      .describe('二维码标题'),
     subtitle: z
       .string()
       .optional()
-      .describe('二维码副标题')
-      .default('百宝箱: 快速落地您的创意'),
+      .describe('二维码副标题'),
     logo: z
       .string()
       .optional()
