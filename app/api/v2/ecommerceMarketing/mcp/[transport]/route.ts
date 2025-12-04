@@ -105,7 +105,7 @@ const handler = createMcpHandler(
       {
         title: '3D电商KV海报提示词助手',
         description: '包含推荐的3D电商KV海报提示词',
-        inputSchema: EcommerceMarketingModel.getImageByUUIDParams.omit({}),
+        inputSchema: {},
       },
       async () => {
         const helper = EcommerceMarketingService.getKvPosterHelper();
@@ -118,7 +118,7 @@ const handler = createMcpHandler(
       {
         title: '宠物海报提示词助手',
         description: '包含推荐的宠物海报提示词',
-        inputSchema: EcommerceMarketingModel.getImageByUUIDParams.omit({}),
+        inputSchema: {},
       },
       async () => {
         const helper = EcommerceMarketingService.getPetPosterHelper();
@@ -131,7 +131,7 @@ const handler = createMcpHandler(
       {
         title: '电商产品海报提示词助手',
         description: '包含推荐的电商产品海报提示词',
-        inputSchema: EcommerceMarketingModel.getImageByUUIDParams.omit({}),
+        inputSchema: {},
       },
       async () => {
         const helper = EcommerceMarketingService.getProductPosterHelper();
@@ -144,7 +144,7 @@ const handler = createMcpHandler(
       {
         title: '小红书风格海报提示词助手',
         description: '包含推荐的小红书风格海报提示词',
-        inputSchema: EcommerceMarketingModel.getImageByUUIDParams.omit({}),
+        inputSchema: {},
       },
       async () => {
         const helper = EcommerceMarketingService.getXiaohongshuPosterHelper();
