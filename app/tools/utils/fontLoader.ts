@@ -28,8 +28,8 @@ export function loadFonts() {
     {
       name: 'Wei-ruan-ya-hei',
       data: readFileSync(resolve(projectRoot, 'public/fonts/微软雅黑.ttf')),
-      weight: 900 as const,
-      style: 'normal' as const,
+      weight: 400 as const,
+      style: 'italic' as const,
     },
   ] as const;
 }
