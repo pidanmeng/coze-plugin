@@ -351,10 +351,10 @@ export async function invokeImageToImageByQwen(
       generateUuid,
     };
   } catch (error) {
-    console.error('Failed to invoke text to image', {
+    console.error('Failed to invoke image to image', {
       error: (error as Error).message,
     });
-    throw new Error(`Failed to invoke text to image: ${error as string}`);
+    throw new Error(`Failed to invoke image to image: ${error as string}`);
   }
 }
 

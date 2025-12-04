@@ -82,14 +82,18 @@ export abstract class PhotoStudioService {
     args: PhotoStudioModel.ProductImageRetouchingParams
   ) {
     const { productImageUrl } = args;
-    const generateParams: GenerateParams = {
-      '20': { class_type: 'LoadImage', inputs: { image: productImageUrl } },
-      workflowUuid: '3ce63f1f851942e59b32f17866c4c1c7',
+    const generateParams: ImageToImageParams = {
+      prompt:
+        'Transformed into a professional product retouching style with a white background (high precision, detail optimization, defect repair, color optimization)',
+      image: productImageUrl,
+      additionalNetwork: [
+        {
+          modelId: '8b29248ad7eb4dd5a9eb2f3c2c03da58',
+          weight: 0.8,
+        },
+      ],
     };
-    const res = await invokeLibLibWorkflow({
-      templateUuid: '4df2efa0f18d46dc9758803e478eb51c',
-      generateParams,
-    });
+    const res = await invokeImageToImageByQwen(generateParams);
     console.info('productImageRetouching result', res);
     return res;
   }
@@ -98,21 +102,18 @@ export abstract class PhotoStudioService {
     args: PhotoStudioModel.TextureEnhancementParams
   ) {
     const { imageUrl } = args;
-    const generateParams: GenerateParams = {
-      '131': { class_type: 'LoadImage', inputs: { image: imageUrl } },
-      '205': {
-        class_type: 'LoraLoader',
-        inputs: {
-          lora_name: '0cf6cf2b87bc43f48603b5905dc6c2c5',
-          strength_model: 1,
+    const generateParams: ImageToImageParams = {
+      image: imageUrl,
+      prompt:
+        'Super-resolution image enhancement technology can generate redrawn high-definition images with clear details, delicate textures, sharp edges, noise-free output, and lossless upscaling capabilities.',
+      additionalNetwork: [
+        {
+          modelId: '5f5a6a1e33394347b5c0d335f5c86c47',
+          weight: 0.8,
         },
-      },
-      workflowUuid: 'c44f310cd0df4771be5bddfea6350c3a',
+      ],
     };
-    const res = await invokeLibLibWorkflow({
-      templateUuid: '4df2efa0f18d46dc9758803e478eb51c',
-      generateParams,
-    });
+    const res = await invokeImageToImageByQwen(generateParams);
     console.info('textureEnhancement result', res);
     return res;
   }
