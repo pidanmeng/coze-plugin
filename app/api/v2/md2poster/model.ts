@@ -17,7 +17,9 @@ export namespace MD2PosterModel {
     theme: z
       .enum(getAvailableThemes())
       .optional()
-      .describe('海报主题，默认minimal')
+      .describe(
+        `海报主题，默认minimal，可选值：${getAvailableThemes().join(', ')}`
+      )
       .default('minimal'),
   });
 
