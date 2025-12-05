@@ -1,5 +1,5 @@
-import { SatoriMarkdown } from './satoriMD';
-import { getTheme, ThemeName } from './themes';
+import { SatoriMarkdown } from "./markdownEngine/satoriMD";
+import { getTheme, ThemeName } from "./markdownEngine/themes";
 
 export type PosterTemplateProps = {
   markdown: string;

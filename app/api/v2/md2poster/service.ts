@@ -4,7 +4,6 @@ import sharp from 'sharp';
 import type { MD2PosterModel } from './model';
 import { PosterTemplate } from './template/posterTemplate';
 import { loadFonts } from '../../../tools/utils/fontLoader';
-import { themes } from './template/themes';
 
 export abstract class MD2PosterService {
   private static defaultSatoriOptions: SatoriOptions = {
