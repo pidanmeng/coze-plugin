@@ -125,7 +125,7 @@ const createDefaultSizing = (): SizingConfig => ({
 });
 
 const createDefaultFonts = (): FontConfig => ({
-  family: 'Inter, sans-serif, Wei-ruan-ya-hei',
+  family: 'Inter, sans-serif, Microsoft YaHei',
   monoFamily: 'monospace',
 });
 
@@ -174,6 +174,8 @@ class MarkdownThemeEngine {
         display: 'flex',
         margin: `${sizing.baseMargin}px 0`,
         fontSize: `${sizing.pFontSize}px`,
+        alignItems: 'center',
+        gap: 4,
       },
       h1: {
         display: 'flex',
@@ -293,6 +295,8 @@ class MarkdownThemeEngine {
             position: 'absolute',
             left: -sizing.paddingLarge - 8,
             top: 0,
+            height: '100%',
+            lineHeight: '1.5',
           };
           switch (listStyleType) {
             case 'disc':
@@ -496,22 +500,14 @@ export type PosterTemplateProps = {
   markdown: string;
   title?: string;
   style?: CSSProperties;
-  themeConfig?: ThemeConfig;
+  themeConfig: ThemeConfig;
 };
-
-class Greeting {
-  constructor(private name: string) {}
-
-  greet() {
-    return `Hello, ${this.name}!`;
-  }
-}
 
 /**
  * Satori Markdown 组件
  * 使用主题引擎渲染 Markdown 为 React 元素
  */
-export const SatoriMarkdown = async (props: PosterTemplateProps) => {
+export const SatoriMarkdown = (props: PosterTemplateProps) => {
   const { markdown, title, style, themeConfig } = props;
   let engine: MarkdownThemeEngine = new MarkdownThemeEngine(themeConfig);
 

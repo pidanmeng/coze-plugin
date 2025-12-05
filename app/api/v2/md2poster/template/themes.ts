@@ -37,7 +37,7 @@ export const lightTheme: ThemeConfig = {
     paddingLarge: 12,
   },
   fonts: {
-    family: 'Inter, sans-serif, Wei-ruan-ya-hei',
+    family: 'Inter, sans-serif, Microsoft YaHei',
     monoFamily: 'monospace',
   },
 };
@@ -72,7 +72,7 @@ export const darkTheme: ThemeConfig = {
     paddingLarge: 12,
   },
   fonts: {
-    family: 'Inter, sans-serif, Wei-ruan-ya-hei',
+    family: 'Inter, sans-serif, Microsoft YaHei',
     monoFamily: 'monospace',
   },
 };
@@ -251,7 +251,7 @@ export const coolTheme: ThemeConfig = {
     paddingLarge: 14,
   },
   fonts: {
-    family: '"Roboto", sans-serif',
+    family: 'Georgia, serif',
     monoFamily: '"Roboto Mono", monospace',
   },
 };

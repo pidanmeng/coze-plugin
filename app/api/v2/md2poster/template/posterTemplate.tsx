@@ -1,13 +1,15 @@
-import { ThemeConfig, SatoriMarkdown } from './satoriMD';
+import { SatoriMarkdown } from './satoriMD';
+import { getTheme, ThemeName } from './themes';
 
 export type PosterTemplateProps = {
   markdown: string;
   title?: string;
   style?: React.CSSProperties;
-  themeConfig?: ThemeConfig;
+  theme: ThemeName;
 };
 
-export const PosterTemplate = async (props: PosterTemplateProps) => {
+export const PosterTemplate = (props: PosterTemplateProps) => {
+  const themeConfig = getTheme(props.theme);
   // 使用引擎的 renderComponent 成员方法
-  return <SatoriMarkdown {...props} />;
+  return <SatoriMarkdown {...props} themeConfig={themeConfig} />;
 };

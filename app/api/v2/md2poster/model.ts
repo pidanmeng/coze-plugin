@@ -1,4 +1,5 @@
 import z from 'zod';
+import { getAvailableThemes, themes } from './template/themes';
 
 export const TOOL_NAME = 'md2poster';
 
@@ -13,11 +14,11 @@ export namespace MD2PosterModel {
       ),
     title: z.string().optional().describe('海报标题'),
     width: z.number().optional().describe('海报宽度，默认800').default(800),
-    backgroundColor: z
-      .string()
+    theme: z
+      .enum(getAvailableThemes())
       .optional()
-      .describe('海报背景颜色，默认白色')
-      .default('#ffffff'),
+      .describe('海报主题，默认minimal')
+      .default('minimal'),
   });
 
   export type GeneratePosterParams = z.infer<typeof generatePosterMCPParams>;

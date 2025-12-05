@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@elysiajs/cors": "^1.4.0",
+    "@elysiajs/eden": "^1.4.5",
     "@elysiajs/openapi": "^1.4.11",
     "@elysiajs/opentelemetry": "^1.4.8",
     "@elysiajs/server-timing": "^1.4.0",
@@ -32,6 +33,7 @@
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
     "resend": "^6.5.2",
     "satori": "^0.18.3",
     "sharp": "^0.34.5",

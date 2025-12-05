@@ -24,7 +24,7 @@ export const StandardQRCode = async (props: StandardQRCodeProps) => {
         backgroundColor: '#f0f0f0',
         borderRadius: '10px',
         fontSize: '48px',
-        fontFamily: 'Inter, sans-serif, Wei-ruan-ya-hei',
+        fontFamily: 'Inter, sans-serif, Microsoft YaHei',
         fontWeight: 700,
         gap: '10px',
       }}

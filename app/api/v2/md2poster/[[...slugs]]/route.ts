@@ -23,8 +23,9 @@ const app = new Elysia({ prefix: getPrefix(TOOL_NAME) })
     {
       body: MD2PosterModel.generatePosterMCPParams,
     }
-  )
-  .get('/playground', () => {});
+  );
 
 export const GET = app.fetch;
 export const POST = app.fetch;
+
+export type MD2PosterBackend = typeof app;
