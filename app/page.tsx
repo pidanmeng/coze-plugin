@@ -9,7 +9,6 @@ export default async function Home() {
     <PosterTemplate
       markdown={markdown}
       title="Markdown to Poster"
-      backgroundColor="#fff"
     />
   );
   const svg = await satori(Element, {
@@ -27,7 +26,6 @@ export default async function Home() {
       <PosterTemplate
         markdown={markdown}
         title="Markdown to Poster"
-        backgroundColor="#fff"
         style={{ width: '50%' }}
       />
       <img
