@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.946.0",
     "@elysiajs/cors": "^1.4.0",
     "@elysiajs/eden": "^1.4.5",
     "@elysiajs/openapi": "^1.4.11",
@@ -38,12 +39,14 @@
     "satori": "^0.18.3",
     "sharp": "^0.34.5",
     "unified": "^11.0.5",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
     "zod": "^4.1.13"
   },
   "devDependencies": {
     "@types/node": "18.11.18",
     "@types/react": "^19.2.7",
     "@types/react-dom": "18.0.10",
+    "@types/xlsx": "^0.0.36",
     "typescript": "^5.9.3"
   }
 }

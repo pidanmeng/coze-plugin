@@ -1,4 +1,4 @@
-import { uploadFile } from '../../../tools/utils/upload';
+import { uploadImage } from '../../../tools/utils/upload';
 import satori, { SatoriOptions } from 'satori';
 import sharp from 'sharp';
 import type { MD2PosterModel } from './model';
@@ -45,7 +45,7 @@ export abstract class MD2PosterService {
         type: 'image/png',
       });
 
-      const result = await uploadFile(file);
+      const result = await uploadImage(file);
       return result;
     } catch (error) {
       return {

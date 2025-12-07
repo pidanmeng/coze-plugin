@@ -1,4 +1,4 @@
-import { uploadFile } from '../../../tools/utils/upload';
+import { uploadImage } from '../../../tools/utils/upload';
 import satori from 'satori';
 import sharp from 'sharp';
 import axios from 'axios';
@@ -45,7 +45,7 @@ export abstract class QRCodeService {
       const file = new File([arrayBuffer], `${uuid}.jpg`, {
         type: 'image/jpeg',
       });
-      const result = await uploadFile(file);
+      const result = await uploadImage(file);
       return result;
     } catch (error) {
       return {
