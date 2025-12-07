@@ -19,6 +19,21 @@ const handler = createMcpHandler(
         };
       }
     );
+    
+    server.registerTool(
+      'convertExcelToJson',
+      {
+        title: 'Excel转JSON',
+        description: '将Excel文件链接转换为JSON数据',
+        inputSchema: Json2ExcelModel.excelToJsonMCPParams,
+      },
+      async (args) => {
+        const res = await Json2ExcelService.convertExcelToJson(args);
+        return {
+          content: [{ type: 'text', text: JSON.stringify(res) }],
+        };
+      }
+    );
   },
   {},
   {

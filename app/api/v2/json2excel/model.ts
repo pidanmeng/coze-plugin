@@ -13,41 +13,21 @@ export namespace Json2ExcelModel {
     .object({
       data: z
         .array(jsonDataItem)
-        .describe('要转换为Excel的数据，数组形式')
-        .default([
-          {
-            姓名: '张三',
-            年龄: 25,
-            邮箱: 'zhangsan@example.com',
-            是否会员: true,
-          },
-          { 姓名: '李四', 年龄: 30, 邮箱: 'lisi@example.com', 是否会员: false },
-          {
-            姓名: '王五',
-            年龄: 28,
-            邮箱: 'wangwu@example.com',
-            是否会员: true,
-          },
-        ]),
-      fileName: z
-        .string()
-        .optional()
-        .describe('文件名（不含扩展名）')
-        .default('data'),
+        .describe('要转换为Excel的数据，数组形式，每个元素都是一个对象，对象中的键值对表示一个字段和字段的值'),
       sheetName: z.string().optional().describe('工作表名称').default('Sheet1'),
     })
     .describe('JSON转Excel参数');
 
-  export type JsonToExcelParams = z.infer<typeof jsonToExcelMCPParams>;
+  export const excelToJsonMCPParams = z
+    .object({
+      fileUrl: z.url().describe('Excel文件的URL链接'),
+      sheetName: z
+        .string()
+        .optional()
+        .describe('要读取的工作表名称，如果不提供则默认读取第一个工作表'),
+    })
+    .describe('Excel转JSON参数');
 
-  // 默认示例数据
-  export const DEFAULT_EXAMPLE_DATA: JsonToExcelParams = {
-    data: [
-      { 姓名: '张三', 年龄: 25, 邮箱: 'zhangsan@example.com', 是否会员: true },
-      { 姓名: '李四', 年龄: 30, 邮箱: 'lisi@example.com', 是否会员: false },
-      { 姓名: '王五', 年龄: 28, 邮箱: 'wangwu@example.com', 是否会员: true },
-    ],
-    fileName: '用户数据',
-    sheetName: '用户信息表',
-  };
+  export type JsonToExcelParams = z.infer<typeof jsonToExcelMCPParams>;
+  export type ExcelToJsonParams = z.infer<typeof excelToJsonMCPParams>;
 }

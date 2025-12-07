@@ -22,16 +22,15 @@ const app = new Elysia({ prefix: getPrefix(TOOL_NAME) })
     },
     {
       body: Json2ExcelModel.jsonToExcelMCPParams,
-      detail: {
-        summary: '将JSON数据转换为Excel文件',
-        description: '将提供的JSON数据转换为Excel文件并上传到CDN，返回文件访问链接',
-        examples: [
-          {
-            name: '示例：用户数据转换',
-            value: Json2ExcelModel.DEFAULT_EXAMPLE_DATA,
-          }
-        ]
-      }
+    }
+  )
+  .post(
+    '/convertExcelToJson',
+    ({ body }) => {
+      return Json2ExcelService.convertExcelToJson(body);
+    },
+    {
+      body: Json2ExcelModel.excelToJsonMCPParams,
     }
   );
 
